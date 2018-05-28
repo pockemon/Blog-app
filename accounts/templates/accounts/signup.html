@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %} {% block content %}
+<h1>Signup</h1>
+<br>
+<br>
+<!--site-form is for stying purposes -->
+<form class="site-form" action="/accounts/signup/" method="post">
+    {% csrf_token %}
+    <!-- output all of fields which comes baked with django inbuilt form -->
+    {{ form }}
+
+    <input type="submit" value="Signup">
+</form>
+{% endblock %}

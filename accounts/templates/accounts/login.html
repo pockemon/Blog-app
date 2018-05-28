@@ -1,0 +1,20 @@
+{% extends 'base_layout.html' %} {% block content %}
+<h1>Login</h1>
+<br>
+<br>
+<!--site-form is for stying purposes -->
+<form class="site-form" action="/accounts/login/" method="post">
+    {% csrf_token %}
+    <!-- output all of fields which comes baked with django inbuilt form -->
+    {{ form }} 
+    
+    <!-- input field is hidden.So a user can't see it-->
+    {% if request.GET.next %}
+    <input type="hidden" name="next" value="{{ request.GET.next }}" /> {% endif %}
+
+    <input type="submit" value="Login">
+</form>
+
+<br><br>
+<p>Not got an account? <a href="{% url 'accounts:signup' %}">Sign Up</a></p>
+{% endblock %}
